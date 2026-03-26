@@ -120,9 +120,13 @@ export const useAudio = () => {
     const vol = volumes.voice * volumes.master;
     if (vol === 0) return;
 
-    if (volumes.voiceEngine === 'voicevox') {
+    // iOSネイティブではVOICEVOXは使えないのでシステム音声にフォールバック
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    if (volumes.voiceEngine === 'voicevox' && !isIOS) {
       speakVoicevox(text, vol);
-    } else if (volumes.voiceEngine === 'google' || volumes.voiceEngine === 'anime') {
+    } else if (!isIOS && (volumes.voiceEngine === 'google' || volumes.voiceEngine === 'anime')) {
       try {
         const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=ja&client=tw-ob&q=${encodeURIComponent(text)}`;
         const audio = new Audio(url);

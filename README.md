@@ -1,8 +1,31 @@
-# React + Vite
+# Training Timer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+インターバルトレーニング用タイマーアプリです。VOICEVOX によるかわいい音声ガイダンス付き。
 
-Currently, two official plugins are available:
+## 起動方法
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+npm install
+npm run dev
+```
+
+ブラウザで http://localhost:5173 を開いてください。
+
+## 終了方法
+
+ターミナルで `Ctrl + C` を押すと開発サーバーが停止します。
+
+## 音声ガイダンス（VOICEVOX）の使い方
+
+1. [VOICEVOX](https://voicevox.hiroshiba.jp/) をダウンロード・インストール
+2. VOICEVOXアプリを起動しておく
+3. アプリの設定画面で **「かわいい(VOICEVOX)」** を選択
+
+> VOICEVOXが起動していない場合はシステム音声に自動切り替えされます。
+
+## 技術スタック
+
+- React 18
+- Vite
+- Web Audio API
+- Web Speech API / VOICEVOX
